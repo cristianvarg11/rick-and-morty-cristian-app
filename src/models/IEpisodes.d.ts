@@ -1,6 +1,6 @@
 export interface IEpisodesResponse {
   info: Info;
-  results: Result[];
+  results: Episode[];
 }
 
 export interface Info {
@@ -10,7 +10,7 @@ export interface Info {
   prev: string | null;
 }
 
-export interface Result {
+export interface Episode {
   id: number;
   name: string;
   air_date: string;

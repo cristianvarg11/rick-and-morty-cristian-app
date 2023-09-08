@@ -1,17 +1,21 @@
 import { ICharactersResponse } from "@/models/ICharacters";
 import { AxiosResponse } from "axios";
 import { IEpisodesResponse } from "@/models/IEpisodes";
+import { IGetAllServicesParams } from "@/models/IGetAllServices";
 import { http } from "./http.service";
 
 const charactersUrl = "https://rickandmortyapi.com/api/character";
 const episodesUrl = "https://rickandmortyapi.com/api/episode";
 
-export const getAllCharacters = (
-  page: number
-): Promise<ICharactersResponse> => {
+export const getAllCharacters = ({
+  page,
+  filter,
+}: IGetAllServicesParams): Promise<ICharactersResponse> => {
   return new Promise((resolve, reject) => {
     http
-      .get<never, AxiosResponse<ICharactersResponse>>(`${charactersUrl}`)
+      .get<never, AxiosResponse<ICharactersResponse>>(
+        `${charactersUrl}/?page=${page}&name=${filter}`
+      )
       .then((charactersResponse) => {
         resolve(charactersResponse.data);
       })
@@ -22,7 +26,10 @@ export const getAllCharacters = (
   });
 };
 
-export const getAllEpisodes = (): Promise<IEpisodesResponse> => {
+export const getAllEpisodes = ({
+  page,
+  filter,
+}: IGetAllServicesParams): Promise<IEpisodesResponse> => {
   return new Promise((resolve, reject) => {
     http
       .get<never, AxiosResponse<IEpisodesResponse>>(`${episodesUrl}`)
