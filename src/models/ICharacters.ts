@@ -25,15 +25,15 @@ export interface Character {
   created: Date;
 }
 
+export interface Location {
+  name: string;
+  url: string;
+}
+
 export enum Gender {
   Female = "Female",
   Male = "Male",
   Unknown = "unknown",
-}
-
-export interface Location {
-  name: string;
-  url: string;
 }
 
 export enum Species {

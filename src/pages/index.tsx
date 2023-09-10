@@ -1,7 +1,5 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-// import { useEffect } from "react";
-// import { getAllCharacters, getAllEpisodes } from "@/services/rickmorty.service";
 
 const inter = Inter({ subsets: ["latin"] });
 

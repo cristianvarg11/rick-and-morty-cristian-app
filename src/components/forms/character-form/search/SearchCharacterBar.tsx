@@ -22,7 +22,7 @@ export default function SearchCharacterBar() {
 
   useEffect(() => {
     setState({ filterName: search, currentPage: 1 });
-  }, [search]);
+  }, [search, setState]);
 
   return (
     <div className="my-5 grid grid-cols-1 justify-items-center">

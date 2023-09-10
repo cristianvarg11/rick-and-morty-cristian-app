@@ -2,14 +2,23 @@ import {
   ICharactersStore,
   ICharactersStoreActions,
 } from "@/models/store/ICharactersStore";
-import { getAllCharactersStoreHelper } from "@/utils/helpers/CharactersStoreHelper";
+import {
+  createCharacterHelper,
+  editCharacterHelper,
+} from "@/utils/helpers/characters/CharactersCreationHelper";
+import {
+  getAllCharactersStoreHelper,
+  paginationHelper,
+} from "@/utils/helpers/characters/CharactersStoreHelper";
 import { create } from "zustand";
 
 export const useCharactersStore = create<
   ICharactersStore & ICharactersStoreActions
->((set) => {
+>((_set) => {
   return {
     characters: [],
+    appenedCharacters: [],
+    editedCharacters: [],
     currentPage: 1,
     totalPages: 0,
     isLoading: false,
@@ -17,11 +26,11 @@ export const useCharactersStore = create<
 
     //-- Pages control
     nextPage: (currentPage, totalPages) => {
-      if (currentPage < totalPages) set({ currentPage: currentPage + 1 });
+      paginationHelper().nextPage(currentPage, totalPages);
     },
 
     prevPage: (currentPage) => {
-      if (currentPage > 1) set({ currentPage: currentPage - 1 });
+      paginationHelper().prevPage(currentPage);
     },
 
     //-- Get characters
@@ -30,9 +39,13 @@ export const useCharactersStore = create<
     },
 
     //-- Create character
-    createCharacter: () => {},
+    createCharacter: (characterInfo, router) => {
+      createCharacterHelper(characterInfo, router);
+    },
 
     //-- Edit character
-    editCharacter: () => {},
+    editCharacter: (originalCharacterInfo, editedCharacterInfo, router) => {
+      editCharacterHelper(originalCharacterInfo, editedCharacterInfo, router);
+    },
   };
 });

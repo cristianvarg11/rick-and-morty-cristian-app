@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Character } from "@/models/ICharacters";
 import { useCharactersStore } from "@/store/CharactersStore";
 import { useRouter } from "next/router";
 
@@ -25,37 +26,34 @@ const tableHeaders = [
 
 export default function CharactersTable() {
   const router = useRouter();
-  const { nextPage, prevPage, characters, currentPage, totalPages } =
-    useCharactersStore.getState();
+  const {
+    nextPage,
+    prevPage,
+    characters,
+    editedCharacters,
+    currentPage,
+    totalPages,
+  } = useCharactersStore.getState();
+
+  const getCharactersForTable = () => {
+    return characters.map((character) => {
+      const editedCharacter = editedCharacters.find(
+        (edited) => edited.id === character.id
+      );
+      return editedCharacter ? editedCharacter : character;
+    });
+  };
 
   return (
-    <>
+    <div className="mx-20">
+      <h1 className="mt-5 text-3xl font-bold">Original Characters</h1>
+
       {/* Search bar*/}
       <SearchCharacterBar />
 
       {/* Caracters table*/}
       <Table>
-        <TableCaption className="justify-items-stretch">
-          <Button
-            className="m-4"
-            onClick={() => {
-              prevPage(currentPage);
-            }}
-          >
-            Prev
-          </Button>
-
-          <p>{currentPage}</p>
-
-          <Button
-            className="m-4"
-            onClick={() => {
-              nextPage(currentPage, totalPages);
-            }}
-          >
-            Next
-          </Button>
-        </TableCaption>
+        <TableCaption className="justify-items-stretch"></TableCaption>
 
         <TableHeader>
           <TableRow>
@@ -68,7 +66,7 @@ export default function CharactersTable() {
         </TableHeader>
 
         <TableBody>
-          {characters.map((character) => (
+          {getCharactersForTable().map((character) => (
             <TableRow key={character.id}>
               <TableCell className="font-medium">{character.name}</TableCell>
 
@@ -103,6 +101,28 @@ export default function CharactersTable() {
           ))}
         </TableBody>
       </Table>
-    </>
+
+      <div className="flex flex-col items-center mb-10">
+        <Button
+          className=""
+          onClick={() => {
+            prevPage(currentPage);
+          }}
+        >
+          Prev
+        </Button>
+
+        <p>{currentPage}</p>
+
+        <Button
+          className=""
+          onClick={() => {
+            nextPage(currentPage, totalPages);
+          }}
+        >
+          Next
+        </Button>
+      </div>
+    </div>
   );
 }
