@@ -26,6 +26,10 @@ export default function CreateUpdateCharacterForm(props: ICharacterFormProps) {
 
   return (
     <div className="m-6">
+      <h1 className="my-5 text-3xl font-bold">
+        {characterId ? "Edit character form" : "Create character form"}
+      </h1>
+
       <form
         className="grid"
         onSubmit={handleSubmit((formData) => {

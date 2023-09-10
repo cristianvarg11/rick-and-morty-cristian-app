@@ -31,7 +31,6 @@ export const editCharacterHelper = (
 ) => {
   const { setState } = useCharactersStore;
   const { editedCharacters } = useCharactersStore.getState();
-  console.log(editedCharacterInfo);
 
   const characterToSave: Character = originalCharacterInfo
     ? {

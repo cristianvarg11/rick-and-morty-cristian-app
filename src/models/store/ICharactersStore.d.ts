@@ -1,5 +1,5 @@
 import { NextRouter } from "next/router";
-import { ICharactersResponse, Character } from "./ICharacters";
+import { Character } from "./ICharacters";
 
 export interface ICharactersStore {
   characters: Character[]; // The original characters from api

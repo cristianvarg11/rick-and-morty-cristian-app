@@ -33,7 +33,10 @@ export default function CharactersPage() {
               Change tables
             </Button>
 
-            <Button onClick={() => router.push("/character")} className="m-5">
+            <Button
+              onClick={() => router.push("/characters/form/")}
+              className="m-5"
+            >
               Create Character
             </Button>
           </header>

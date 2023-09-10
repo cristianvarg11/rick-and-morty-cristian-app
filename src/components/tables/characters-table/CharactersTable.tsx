@@ -9,7 +9,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Character } from "@/models/ICharacters";
 import { useCharactersStore } from "@/store/CharactersStore";
 import { useRouter } from "next/router";
 
@@ -85,13 +84,19 @@ export default function CharactersTable() {
               </TableCell>
 
               <TableCell className="font-medium">
-                <img src={character.image} alt="img" width={80} height={10} />
+                <img
+                  src={character.image}
+                  alt="img"
+                  width={80}
+                  height={10}
+                  className="rounded-md"
+                />
               </TableCell>
 
               <TableCell>
                 <Button
                   onClick={() => {
-                    router.push(`/character/${character.id}`);
+                    router.push(`/characters/form/${character.id}`);
                   }}
                 >
                   Edit
