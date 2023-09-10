@@ -7,5 +7,5 @@ export const useGetAllCharacters = (filterName: string) => {
 
   useEffect(() => {
     getCharacters(currentPage, filterName);
-  }, [currentPage, getCharacters]);
+  }, [currentPage, getCharacters, filterName]);
 };
