@@ -33,21 +33,21 @@ export default function EditEpisodeForm(props: ICharacterFormProps) {
       >
         {/*name*/}
         <Input
-          className="m-3"
+          className="my-3"
           {...register("name", { required: true })}
           placeholder="Name"
         />
 
         {/*episode code*/}
         <Input
-          className="m-3"
+          className="my-3"
           {...register("episode", { required: true })}
           placeholder="Episode code"
         />
 
         {/*air date*/}
         <Input
-          className="m-3"
+          className="my-3"
           {...register("air_date")}
           placeholder="Air date"
         />
@@ -55,7 +55,7 @@ export default function EditEpisodeForm(props: ICharacterFormProps) {
         {/*referential input id*/}
         {episodeId && (
           <Input
-            className="m-3"
+            className="my-3"
             {...register("id")}
             placeholder="id"
             type="hidden"

@@ -40,18 +40,18 @@ export default function CreateUpdateCharacterForm(props: ICharacterFormProps) {
       >
         {/*name*/}
         <Input
-          className="m-3"
+          className="my-3"
           {...register("name", { required: true })}
           placeholder="Name"
         />
 
         {/*type*/}
-        <Input className="m-3" {...register("type")} placeholder="Type" />
+        <Input className="my-3" {...register("type")} placeholder="Type" />
 
         {/*referential input id*/}
         {characterId && (
           <Input
-            className="m-3"
+            className="my-3"
             {...register("id")}
             placeholder="id"
             type="hidden"
@@ -62,7 +62,7 @@ export default function CreateUpdateCharacterForm(props: ICharacterFormProps) {
         {/*Origin*/}
         {!characterId && (
           <Input
-            className="m-3"
+            className="my-3"
             {...register("origin", { required: true })}
             placeholder="Origin"
           />
@@ -71,7 +71,7 @@ export default function CreateUpdateCharacterForm(props: ICharacterFormProps) {
         {/*gender*/}
         <select
           {...register("gender")}
-          className="m-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="my-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         >
           <option value="">Gender</option>
           {genders.map((gender, idx) => (
@@ -84,7 +84,7 @@ export default function CreateUpdateCharacterForm(props: ICharacterFormProps) {
         {/*status*/}
         <select
           {...register("status")}
-          className="m-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="my-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         >
           <option value="">Status</option>
           {status.map((sts, idx) => (
@@ -97,7 +97,7 @@ export default function CreateUpdateCharacterForm(props: ICharacterFormProps) {
         {/*species*/}
         <select
           {...register("species")}
-          className="m-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="my-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         >
           <option value="">Species</option>s
           {species.map((sps, idx) => (

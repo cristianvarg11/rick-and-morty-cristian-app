@@ -22,14 +22,20 @@ export default function LoginForm() {
   return (
     <div className="m-6">
       <form
-        className="grid w-96"
         onSubmit={handleSubmit((formData) => handleLogin(formData))}
+        style={{
+          border: "1px solid gray",
+          padding: "40px",
+          background: "white",
+          boxShadow: "1px 3px 1px #9E9E9E",
+          borderRadius: "10px",
+        }}
       >
-        <h1 className="my-5 text-3xl font-bold m-auto">Login</h1>
+        <h1 className="my-5 text-3xl font-bold text-center">Login</h1>
 
         {/*email*/}
         <Input
-          className="m-3"
+          className="my-3"
           {...register("email", { required: true })}
           placeholder="email"
           type="email"
@@ -37,13 +43,13 @@ export default function LoginForm() {
 
         {/*password*/}
         <Input
-          className="m-3"
+          className="my-3"
           {...register("password")}
           placeholder="Password"
           type="password"
         />
 
-        <Button type="submit" className="m-auto max-w-xs ">
+        <Button type="submit" style={{ width: "100%" }}>
           Submit
         </Button>
       </form>

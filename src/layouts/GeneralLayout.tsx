@@ -6,10 +6,11 @@ export default function DefaultLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <div>
       <Navbar />
-
-      <div>{children}</div>
-    </>
+      <div style={{ maxWidth: "1536px", width: "100%", margin: "0 auto" }}>
+        <div>{children}</div>
+      </div>
+    </div>
   );
 }

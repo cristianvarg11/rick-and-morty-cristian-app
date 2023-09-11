@@ -25,7 +25,7 @@ export default function CharactersPage() {
         <h1>Loading...</h1>
       ) : (
         <>
-          <header className="grid grid-cols-2">
+          <header className="grid grid-cols-1 sm:grid-cols-2">
             <Button
               onClick={() => setAppenedTable(!appenedTable)}
               className="m-5"
