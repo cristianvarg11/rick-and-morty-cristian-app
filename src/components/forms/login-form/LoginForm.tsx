@@ -14,16 +14,18 @@ export default function LoginForm() {
   const router = useRouter();
 
   const handleLogin = (loginFormData: ILoginForm) => {
-    loginService(loginFormData).then(() => router.push("/"));
+    loginService(loginFormData)
+      .then(() => router.push("/"))
+      .catch((err) => console.error(err));
   };
 
   return (
     <div className="m-6">
       <form
-        className="grid"
+        className="grid w-96"
         onSubmit={handleSubmit((formData) => handleLogin(formData))}
       >
-        <h1 className="my-5 text-3xl font-bold">Login</h1>
+        <h1 className="my-5 text-3xl font-bold m-auto">Login</h1>
 
         {/*email*/}
         <Input
@@ -41,7 +43,7 @@ export default function LoginForm() {
           type="password"
         />
 
-        <Button type="submit" className="my-6 max-w-xl">
+        <Button type="submit" className="m-auto max-w-xs ">
           Submit
         </Button>
       </form>
