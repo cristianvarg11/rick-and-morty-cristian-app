@@ -18,6 +18,7 @@ export default function loginHandler(
     const tokenSerialized = serialize("api_token", token, {
       sameSite: "none",
       path: "/",
+      secure: true,
     });
 
     res.setHeader("Set-Cookie", tokenSerialized);
