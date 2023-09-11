@@ -10,6 +10,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useCharactersStore } from "@/store/CharactersStore";
+import Image from "next/image";
 import { useRouter } from "next/router";
 
 const tableHeaders = [
@@ -84,7 +85,7 @@ export default function CharactersTable() {
               </TableCell>
 
               <TableCell className="font-medium">
-                <img
+                <Image
                   src={character.image}
                   alt="img"
                   width={80}

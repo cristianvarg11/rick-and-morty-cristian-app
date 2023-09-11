@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+import { logoutHelper } from "@/utils/helpers/logoutHelper";
 import Link from "next/link";
 
 export default function Navbar() {
@@ -5,7 +7,7 @@ export default function Navbar() {
     <>
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <Link href="/characters" className="flex items-center">
+          <Link href="/" className="flex items-center">
             <img
               src="https://www.freepnglogos.com/uploads/rick-and-morty-png/rick-and-morty-portal-shoes-white-clothing-zavvi-23.png"
               className="h-8 mr-3"
@@ -51,6 +53,10 @@ export default function Navbar() {
                 >
                   Episodes
                 </Link>
+              </li>
+
+              <li>
+                <Button onClick={logoutHelper}>Logout</Button>
               </li>
             </ul>
           </div>
