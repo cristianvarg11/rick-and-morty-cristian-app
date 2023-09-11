@@ -78,7 +78,15 @@ export default function EpisodesTable() {
         </TableBody>
       </Table>
 
-      <div className="flex flex-col items-center mb-10">
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "20px",
+          margin: "30px",
+        }}
+      >
         <Button
           className=""
           onClick={() => {
