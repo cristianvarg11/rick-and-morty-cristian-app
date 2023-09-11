@@ -30,7 +30,10 @@ export const editCharacterHelper = (
   router: NextRouter
 ) => {
   const { setState } = useCharactersStore;
-  const { editedCharacters } = useCharactersStore.getState();
+  // Obtain a copy updated of editedCharacters from state
+  const editedCharacters = useCharactersStore
+    .getState()
+    .editedCharacters.slice();
 
   const characterToSave: Character = originalCharacterInfo
     ? {
@@ -43,7 +46,20 @@ export const editCharacterHelper = (
       }
     : editedCharacterInfo;
 
-  setState({ editedCharacters: [...editedCharacters, characterToSave] });
+  // Verify if already exist this character (passed) in the array
+  const characterIndex = editedCharacters.findIndex(
+    (character) => character.id === characterToSave.id
+  );
+
+  if (characterIndex !== -1) {
+    // If already exist, update this
+    editedCharacters[characterIndex] = characterToSave;
+  } else {
+    // Else, append
+    editedCharacters.push(characterToSave);
+  }
+
+  setState({ editedCharacters });
 
   router.push("/characters");
 };
