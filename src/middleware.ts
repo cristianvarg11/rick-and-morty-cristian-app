@@ -16,5 +16,11 @@ export function middleware(request: NextRequest) {
 
 // Protected routes
 export const config = {
-  matcher: ["/", "/characters", "/episodes"],
+  matcher: [
+    "/",
+    "/characters/",
+    "/episodes",
+    "/characters/form",
+    "/characters/form/:id*",
+  ],
 };
