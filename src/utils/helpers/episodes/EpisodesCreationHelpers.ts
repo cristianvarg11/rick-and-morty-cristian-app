@@ -13,7 +13,7 @@ export const editEpisodeHelper = (
   router: NextRouter
 ) => {
   const { setState } = useEpisodesStore;
-  const { editedEpisodes } = useEpisodesStore.getState();
+  const editedEpisodes = useEpisodesStore.getState().editedEpisodes.slice();
 
   const episodeToSave: Episode = originalEpisodeInfo
     ? {
@@ -24,7 +24,20 @@ export const editEpisodeHelper = (
       }
     : editedEpisodeInfo;
 
-  setState({ editedEpisodes: [...editedEpisodes, episodeToSave] });
+  // Verify if already exist this episode (passed) in the array
+  const episodeIndex = editedEpisodes.findIndex(
+    (episode) => episode.id === episodeToSave.id
+  );
+
+  if (episodeIndex !== -1) {
+    // If already exist, update this
+    editedEpisodes[episodeIndex] = episodeToSave;
+  } else {
+    // Else, append
+    editedEpisodes.push(episodeToSave);
+  }
+
+  setState({ editedEpisodes });
 
   router.push("/episodes");
 };
